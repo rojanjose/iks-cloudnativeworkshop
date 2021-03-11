@@ -21,6 +21,10 @@ nav:
     - MkDocs Cheatsheet: resources/MKDOCS.md
     - Admin Guide: resources/ADMIN.md
 
+extra:
+  version:
+    method: mike
+
 ## DO NOT CHANGE BELOW THIS LINE
 
 # Copyright
