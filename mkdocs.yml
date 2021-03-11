@@ -1,11 +1,11 @@
 # Project information
-site_name: Workshop Setup
-site_url: https://remkohdev.github.io/workshop-setup
-site_author: IBM Developer
+site_name: IKS Cloud Native Workshop
+site_url: https://jrtorres.github.io/iks-cloudnativeworkshop
+site_author: Javier Torres
 
 # Repository
-repo_name: workshop-setup
-repo_url: https://github.com/remkohdev/workshop-setup
+repo_name: iks-cloudnativeworkshop
+repo_url: https://jrtorres.github.io/iks-cloudnativeworkshop
 edit_uri: edit/master/docs
 
 # Navigation
