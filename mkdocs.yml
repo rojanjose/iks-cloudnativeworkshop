@@ -12,14 +12,28 @@ edit_uri: edit/master/docs
 nav:
   - Welcome:
     - About the workshop: README.md
-  - Workshop:
-    - Lab 0. Pre-work: pre-work/README.md
-    - Lab 1. Some Title: lab-1/README.md
-  - References:
-    - Additional Resources: resources/RESOURCES.md
-    - Contributors: resources/CONTRIBUTORS.md
-    - MkDocs Cheatsheet: resources/MKDOCS.md
-    - Admin Guide: resources/ADMIN.md
+
+  - Workshop Setup:
+    - Setup: generatedContent/workshop-setup/README.md
+  - Kube 101 Welcome:
+    - About the workshop: generatedContent/kube101/README.md
+  - Kube 101 Workshop:
+    - Lab 0. Access a Kubernetes cluster: generatedContent/kube101/Lab0/README.md
+    - Lab 1. Deploy your first application: generatedContent/kube101/Lab1/README.md
+    - Lab 2. Scale and update deployments: generatedContent/kube101/Lab2/README.md
+    - Lab 3. Build multi-tier applications: generatedContent/kube101/Lab3/README.md
+  - Helm 101 Welcome:
+    - About the workshop: generatedContent/helm101/README.md
+  - Helm 101 Workshop:
+    - Lab 0. Installing Helm on IKS: generatedContent/helm101/Lab0/README.md
+    - Lab 1. Deploy with Helm: generatedContent/helm101/Lab1/README.md
+    - Lab 2. Make changes with Helm: generatedContent/helm101/Lab2/README.md
+    - Lab 3. Keeping track of the deployed application: generatedContent/helm101/Lab3/README.md
+    - Lab 4. Share Helm Charts: generatedContent/helm101/Lab4/README.md
+  - CI/CD Workshop:
+    - Jenkins Lab: generatedContent/app-modernization-cicd-lab-iks/README.md
+  - Microservices Workshop:
+    - Deploy Microservices Lab: generatedContent/spring-boot-microservices-on-kubernetes/README.md
 
 extra:
   version:

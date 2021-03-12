@@ -1,0 +1,138 @@
+# This file contains all the MKDOCS navigation from the generated content. Still need to prefix the path with the right ("generatedContent") path so you can copy and paste this into parent mkdocs.yml
+
+###############################
+##  SUMMARY.md for workshop-setup
+################################
+
+# Home page for repo 
+# [workshop-setup](generatedContent/workshop-setup/README.md)
+
+
+
+###############################
+##  SUMMARY.md for kube101
+################################
+
+# Home page for repo 
+# [kube101](generatedContent/kube101/README.md)
+
+nav 
+ - Welcome:
+    - About the workshop: README.md
+- Workshop:
+    - Lab 0. Access a Kubernetes cluster: Lab0/README.md
+    - Lab 1. Deploy your first application: Lab1/README.md
+    - Lab 2. Scale and update deployments: Lab2/README.md
+    - Lab 3. Build multi-tier applications: Lab3/README.md
+
+###############################
+##  SUMMARY.md for helm101
+################################
+
+# Home page for repo 
+# [helm101](generatedContent/helm101/README.md)
+
+nav 
+ - Welcome:
+    - About the workshop: README.md
+- Workshop:
+    - Lab 0. Installing Helm on IKS: Lab0/README.md
+    - Lab 1. Deploy with Helm: Lab1/README.md
+    - Lab 2. Make changes with Helm: Lab2/README.md
+    - Lab 3. Keeping track of the deployed application: Lab3/README.md
+    - Lab 4. Share Helm Charts: Lab4/README.md
+
+###############################
+##  SUMMARY.md for app-modernization-cicd-lab-iks
+################################
+
+# Home page for repo 
+# [app-modernization-cicd-lab-iks](generatedContent/app-modernization-cicd-lab-iks/README.md)
+
+
+
+###############################
+##  SUMMARY.md for spring-boot-microservices-on-kubernetes
+################################
+
+# Home page for repo 
+# [spring-boot-microservices-on-kubernetes](generatedContent/spring-boot-microservices-on-kubernetes/README.md)
+
+
+
+###############################
+##  SUMMARY.md for kubernetes-storage
+################################
+
+# Home page for repo 
+# [kubernetes-storage](generatedContent/kubernetes-storage/README.md)
+
+nav 
+ - Welcome:
+    - About the workshop: README.md
+- Workshop:
+    - Lab 0. Prework: Lab0/README.md
+    - Lab 1. Container Storage and Kubernetes: Lab1/README.md
+    - Lab 2. File Storage with Kubernetes: Lab2/README.md
+    - Lab 3. Block Storage with Kubernetes: Lab3/README.md
+    - Lab 4. Kubernetes StatefulSets: Lab4/README.md
+    - Lab 5. Object Storage with Kubernetes:
+        - 0. About: Lab5/README.md
+        - 1. Setup: Lab5/setup/README.md
+        - 2. About Object Storage: Lab5/cos-with-s3fs/ABOUT-COS.md
+        - 3. Create Object Storage Instance: Lab5/cos-with-s3fs/COS.md
+        - 4. Configure your Kubernetes Cluster: Lab5/cos-with-s3fs/CLUSTER.md
+        - 5. Configure the Object Storage Plugin: Lab5/cos-with-s3fs/COS-PLUGIN.md
+        - 6. Create the PersistentVolumeClaim: Lab5/cos-with-s3fs/PVC.md
+        - 7. Deploy MongoDB using Object Storage: Lab5/cos-with-s3fs/MONGODB.md
+    - Lab 6. Software Defined Storage (SDS) with Portworx, coming soon...: Lab6/README.md
+    - Lab 7. Connecting to External Storage: Lab7/README.md
+
+###############################
+##  SUMMARY.md for kubernetes-operators
+################################
+
+# Home page for repo 
+# [kubernetes-operators](generatedContent/kubernetes-operators/README.md)
+
+nav 
+ - Welcome:
+    - About the workshop: README.md
+- Workshop:
+    - Setup: setup.md
+    - Custom Resource (CR): lab1.md
+    - Go Operator with Operator SDK: lab2.md
+    - Operator from Helm: lab3.md
+    - OLM:
+        - Introduction: lab4.md
+        - Operator with OLM: lab5.md
+    - Tools: lab6.md
+
+###############################
+##  SUMMARY.md for kubernetes-extensions.git
+################################
+
+# Home page for repo 
+# [kubernetes-extensions.git](generatedContent/kubernetes-extensions.git/README.md)
+
+
+
+###############################
+##  SUMMARY.md for istio101
+################################
+
+# Home page for repo 
+# [istio101](generatedContent/istio101/README.md)
+
+nav 
+ - Welcome:
+    - About the workshop: README.md
+- Workshop:
+    - Lab 1. Access a Kubernetes cluster: exercise-1/README.md
+    - Lab 2. Install Istio: exercise-2/README.md
+    - Lab 3. Deploy sample application: exercise-3/README.md
+    - Lab 4. Observe service telemetry metrics: exercise-4/README.md
+    - Lab 5. Expose the service mesh: exercise-5/README.md
+    - Lab 6. Perform traffic management: exercise-6/README.md
+    - Lab 7. Secure your service mesh: exercise-7/README.md
+
