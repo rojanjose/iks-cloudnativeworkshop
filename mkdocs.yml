@@ -33,25 +33,26 @@ nav:
   - Jenkins 101:
     - Jenkins Lab: generatedContent/jenkins101/README.md
   - Microservices:
-    - Deploy Microservices Lab: generatedContent/deploy-microservices/README.md
+    - Deploy Microservices Lab: generatedContent/deploy-microservices/README.md    
   - Storage:
     - Kubernetes Storage: generatedContent/kubernetes-storage/README.md
+    - Lab 0. Prework: generatedContent/kubernetes-storage/Lab0/README.md
     - Lab 1. Container storage and Kubernetes: generatedContent/kubernetes-storage/Lab1/README.md
     - Lab 2. File storage with kubernetes: generatedContent/kubernetes-storage/Lab2/README.md
-    - Lab 3. Block storage with kubernetes: generatedContent/kubernetes-storage/Lab3/README.md
+    - Lab 3. Block storage with kubernetes: generatedContent/kubernetes-storage/Lab3/README.md    
   - Operators:
-    - CR and Operators: generatedContent/kubernetes-operators/README.md
+    - About the workshop: generatedContent/kubernetes-operators/README.md
+    - Setup: generatedContent/kubernetes-operators/setup.md
+    - Custom Resource (CR): generatedContent/kubernetes-operators/lab1.md
+    - Go Operator with Operator SDK: generatedContent/kubernetes-operators/lab2.md
+    - Operator from Helm: generatedContent/kubernetes-operators/lab3.md
   - Istio 101:
     - Lab 0. Install Istio: generatedContent/istio101/exercise-2/README.md
-    - Lab 1. Deploy Guestbook with Istio Proxy: generatedContent/istio101/exercise-3/README.md
+    - Lab 1. Deploy Guestbook App: generatedContent/istio101/exercise-3/README.md
     - Lab 2. Metrics and Tracing: generatedContent/istio101/exercise-4/README.md
     - Lab 3. Exposing Guestbook with Istio Ingress Gateway: generatedContent/istio101/exercise-5/README.md
     - Lab 4. Traffic Management: generatedContent/istio101/exercise-6/README.md
     - Lab 5. mutual TLS: generatedContent/istio101/exercise-7/README.md
-
-extra:
-  version:
-    method: mike
 
 ## DO NOT CHANGE BELOW THIS LINE
 
@@ -67,12 +68,15 @@ theme:
   icon:
     logo: material/library
   features:
-    - navigation.tabs
+    #- navigation.tabs
     #- navigation.instant
+    - navigation.indexes
   palette:
     scheme: default
-    primary: blue
+    primary: black
     accent: blue
+  icon:
+    repo: fontawesome/brands/github
 
 # Plugins
 plugins:
@@ -91,6 +95,8 @@ extra:
       link: https://www.youtube.com/user/developerworks
     - icon: fontawesome/brands/dev
       link: https://dev.to/ibmdeveloper
+  version:
+    method: mike
 
 # Extensions
 markdown_extensions:
@@ -112,7 +118,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      linenums: true
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.mark
