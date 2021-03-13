@@ -12,32 +12,64 @@ edit_uri: edit/master/docs
 nav:
   - Welcome:
     - About the workshop: README.md
+  - Workshop:
+    - Setup:
+      - Setup: generatedContent/workshop-setup/README.md
+    - Kubernetes 101:
+      - About the workshop: generatedContent/kube101/README.md
+      - Lab 0. Access a Kubernetes cluster: generatedContent/kube101/Lab0/README.md
+      - Lab 1. Deploy your first application: generatedContent/kube101/Lab1/README.md
+      - Lab 2. Scale and update deployments: generatedContent/kube101/Lab2/README.md
+      - Lab 3. Build multi-tier applications: generatedContent/kube101/Lab3/README.md
+    - Helm 101:
+      - About the workshop: generatedContent/helm101/README.md
+      - Lab 0. Installing Helm on IKS: generatedContent/helm101/Lab0/README.md
+      - Lab 1. Deploy with Helm: generatedContent/helm101/Lab1/README.md
+      - Lab 2. Make changes with Helm: generatedContent/helm101/Lab2/README.md
+      - Lab 3. Keeping track of the deployed application: generatedContent/helm101/Lab3/README.md
+      - Lab 4. Share Helm Charts: generatedContent/helm101/Lab4/README.md
+    - CI/CD:
+      - Jenkins Lab: generatedContent/app-modernization-cicd-lab-iks/README.md
+    - Microservices:
+      - Deploy Microservices Lab: generatedContent/spring-boot-microservices-on-kubernetes/README.md
+    - Kubernetes Storage:
+      - About the workshop: generatedContent/kubernetes-storage/README.md
+      - Lab 0. Prework: generatedContent/kubernetes-storage/Lab0/README.md
+      - Lab 1. Container Storage and Kubernetes: generatedContent/kubernetes-storage/Lab1/README.md
+      - Lab 2. File Storage with Kubernetes: generatedContent/kubernetes-storage/Lab2/README.md
+      - Lab 3. Block Storage with Kubernetes: generatedContent/kubernetes-storage/Lab3/README.md
+      - Lab 4. Kubernetes StatefulSets: generatedContent/kubernetes-storage/Lab4/README.md
+      - Lab 5. Object Storage with Kubernetes:
+          - 0. About: generatedContent/kubernetes-storage/Lab5/README.md
+          - 1. Setup: generatedContent/kubernetes-storage/Lab5/setup/README.md
+          - 2. About Object Storage: generatedContent/kubernetes-storage/Lab5/cos-with-s3fs/ABOUT-COS.md
+          - 3. Create Object Storage Instance: generatedContent/kubernetes-storage/Lab5/cos-with-s3fs/COS.md
+          - 4. Configure your Kubernetes Cluster: generatedContent/kubernetes-storage/Lab5/cos-with-s3fs/CLUSTER.md
+          - 5. Configure the Object Storage Plugin: generatedContent/kubernetes-storage/Lab5/cos-with-s3fs/COS-PLUGIN.md
+          - 6. Create the PersistentVolumeClaim: generatedContent/kubernetes-storage/Lab5/cos-with-s3fs/PVC.md
+          - 7. Deploy MongoDB using Object Storage: generatedContent/kubernetes-storage/Lab5/cos-with-s3fs/MONGODB.md
+      - Lab 7. Connecting to External Storage: generatedContent/kubernetes-storage/Lab7/README.md
+    - Kubernetes Operators:
+      - About the workshop: generatedContent/kubernetes-operators/README.md
+      - Setup: generatedContent/kubernetes-operators/setup.md
+      - Custom Resource (CR): generatedContent/kubernetes-operators/lab1.md
+      - Go Operator with Operator SDK: generatedContent/kubernetes-operators/lab2.md
+      - Operator from Helm: generatedContent/kubernetes-operators/lab3.md
+      - OLM:
+          - Introduction: generatedContent/kubernetes-operators/lab4.md
+          - Operator with OLM: generatedContent/kubernetes-operators/lab5.md
+      - Tools: generatedContent/kubernetes-operators/lab6.md
+    - Istio:
+      - About the workshop: generatedContent/istio101/README.md
+      - Lab 1. Access a Kubernetes cluster: generatedContent/istio101/exercise-1/README.md
+      - Lab 2. Install Istio: generatedContent/istio101/exercise-2/README.md
+      - Lab 3. Deploy sample application: generatedContent/istio101/exercise-3/README.md
+      - Lab 4. Observe service telemetry metrics: generatedContent/istio101/exercise-4/README.md
+      - Lab 5. Expose the service mesh: generatedContent/istio101/exercise-5/README.md
+      - Lab 6. Perform traffic management: generatedContent/istio101/exercise-6/README.md
+      - Lab 7. Secure your service mesh: generatedContent/istio101/exercise-7/README.md
+  
 
-  - Workshop Setup:
-    - Setup: generatedContent/workshop-setup/README.md
-  - Kube 101 Welcome:
-    - About the workshop: generatedContent/kube101/README.md
-  - Kube 101 Workshop:
-    - Lab 0. Access a Kubernetes cluster: generatedContent/kube101/Lab0/README.md
-    - Lab 1. Deploy your first application: generatedContent/kube101/Lab1/README.md
-    - Lab 2. Scale and update deployments: generatedContent/kube101/Lab2/README.md
-    - Lab 3. Build multi-tier applications: generatedContent/kube101/Lab3/README.md
-  - Helm 101 Welcome:
-    - About the workshop: generatedContent/helm101/README.md
-  - Helm 101 Workshop:
-    - Lab 0. Installing Helm on IKS: generatedContent/helm101/Lab0/README.md
-    - Lab 1. Deploy with Helm: generatedContent/helm101/Lab1/README.md
-    - Lab 2. Make changes with Helm: generatedContent/helm101/Lab2/README.md
-    - Lab 3. Keeping track of the deployed application: generatedContent/helm101/Lab3/README.md
-    - Lab 4. Share Helm Charts: generatedContent/helm101/Lab4/README.md
-  - CI/CD Workshop:
-    - Jenkins Lab: generatedContent/app-modernization-cicd-lab-iks/README.md
-  - Microservices Workshop:
-    - Deploy Microservices Lab: generatedContent/spring-boot-microservices-on-kubernetes/README.md
-
-extra:
-  version:
-    method: mike
 
 ## DO NOT CHANGE BELOW THIS LINE
 
@@ -53,12 +85,15 @@ theme:
   icon:
     logo: material/library
   features:
-    - navigation.tabs
+    #- navigation.tabs
     #- navigation.instant
+    - navigation.indexes
   palette:
     scheme: default
-    primary: blue
+    primary: black
     accent: blue
+  icon:
+    repo: fontawesome/brands/github
 
 # Plugins
 plugins:
@@ -77,6 +112,8 @@ extra:
       link: https://www.youtube.com/user/developerworks
     - icon: fontawesome/brands/dev
       link: https://dev.to/ibmdeveloper
+  version:
+    method: mike
 
 # Extensions
 markdown_extensions:
@@ -98,7 +135,8 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      linenums: true
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.mark
