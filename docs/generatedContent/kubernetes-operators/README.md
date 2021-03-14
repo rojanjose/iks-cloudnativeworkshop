@@ -13,13 +13,7 @@ Kubernetes Operators is a series of labs about deploying applications to Kuberne
 1. [Setup](setup.md),
 2. [Lab 1 Create a Custom Resource (CR)](lab1.md),
 3. [Lab2 Create an Operator of Type Go using the Operator SDK](lab2.md),
-4. [Lab3 Create an Operator using an Existing Helm Chart](lab3.md),
-5. [Tools](lab4.md)
-
-## Technologies
-
-* Red Hat OpenShift Kubernetes Service (ROKS) v4.5
-* Operator Framework
+4. [Lab3 Create an Operator using an Existing Helm Chart](lab3.md)
 
 ## Contributors
 
