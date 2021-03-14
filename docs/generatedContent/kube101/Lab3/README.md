@@ -369,10 +369,9 @@ spec:
   redis-slave-wwcxw   1/1       Running   0          2d
   ```
 
-- And then go into one of those pods and look at the database to see
-  that everything looks right. Replace the pod name `redis-slave-kd7vx` with your own pod name. If you get the back `(empty list or set)` when you print the keys, go to the guestbook application and add an entry!
+- And then go into one of those pods and look at the database to see that everything looks right. Replace the pod name `redis-slave-kd7vx` with your own pod name. If you get the back `(empty list or set)` when you print the keys, go to the guestbook application and add an entry!
 
- ```shell
+```shell
 $ kubectl exec -it redis-slave-kd7vx  redis-cli
 127.0.0.1:6379> keys *
 1) "guestbook"
