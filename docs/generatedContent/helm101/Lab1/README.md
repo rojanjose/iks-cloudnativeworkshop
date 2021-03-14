@@ -46,10 +46,10 @@ git clone https://github.com/IBM/guestbook.git
 
    You can now play with the guestbook that you just created by opening it in a browser (it might take a few moments for the guestbook to come up).
 
-    * **Local Host:**
+   * **Local Host:**
     If you are running Kubernetes locally, view the guestbook by navigating to `http://localhost:3000` in your browser.
 
-    * **Remote Host:**
+   * **Remote Host:**
 
     1. To view the guestbook on a remote host, locate the external IP and port of the load balancer in the **EXTERNAL-IP** and **PORTS** columns of the `$ kubectl get services` output.
 
@@ -192,10 +192,10 @@ kubectl create namespace helm-demo
 
    You can now play with the guestbook that you just created by opening it in a browser (it might take a few moments for the guestbook to come up).
 
-    * **Local Host:**
+   * **Local Host:**
     If you are running Kubernetes locally, view the guestbook by navigating to `http://localhost:3000` in your browser.
 
-    * **Remote Host:**
+   * **Remote Host:**
 
     1. To view the guestbook on a remote host, locate the external IP and the port of the load balancer by following the "NOTES" section in the install output. The commands will be similar to the following:
 
@@ -219,7 +219,7 @@ kubectl create namespace helm-demo
 
     2. Navigate to the output given (for example `http://50.23.5.136:31367`) in your browser. You should see the guestbook now displaying in your browser:
 
-       ![Guestbook](../images/guestbook-page.png)
+      ![Guestbook](../images/guestbook-page.png)
 
 ## Conclusion
 

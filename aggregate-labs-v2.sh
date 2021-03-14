@@ -58,7 +58,7 @@ do_the_thing(){
         fi
 
         GENERATED_CONTENT_LINKS="generatedContentDocs.yml"
-        echo "Generating links in $GENERATED_CONTENT_LINKS_MD"
+        echo "Generating links in $GENERATED_CONTENT_LINKS"
 
         printf "###############################\n" >> $GENERATED_CONTENT_LINKS
         printf "##  SUMMARY.md for $workshopName\n" >> $GENERATED_CONTENT_LINKS
@@ -68,7 +68,7 @@ do_the_thing(){
 
 	    #SUMMARY_MD="$GENERATED_CONTENT_PATH"/SUMMARY.md
         #if [[ -f $SUMMARY_MD ]]; then
-        #    sed "s/\[\(.*\)\](\(.*\))/\[\1\](generatedContent\/$workshopName\/\2)/" $SUMMARY_MD >> $GENERATED_CONTENT_LINKS_MD
+        #    sed "s/\[\(.*\)\](\(.*\))/\[\1\](generatedContent\/$workshopName\/\2)/" $SUMMARY_MD >> $GENERATED_CONTENT_LINKS
         #fi
 
         if [ -f $MKDOCS_YAML ]; then
