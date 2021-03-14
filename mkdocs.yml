@@ -11,7 +11,7 @@ edit_uri: edit/master/docs
 # Navigation
 nav:
   - Welcome:
-    - About the workshop: README.md
+    - Workshop Overview: README.md
   - Setup:
     - Setup: generatedContent/workshop-setup/docs/README.md
     - Register for IBM Cloud: generatedContent/workshop-setup/docs/NEWACCOUNT.md
@@ -31,9 +31,9 @@ nav:
     - Lab 3. Keeping track of the deployed application: generatedContent/helm101/Lab3/README.md
     - Lab 4. Share Helm Charts: generatedContent/helm101/Lab4/README.md
   - Jenkins 101:
-    - Jenkins Lab: generatedContent/jenkins101/README.md
+    - Jenkins and Kubernetes: generatedContent/jenkins101/README.md
   - Microservices:
-    - Deploy Microservices Lab: generatedContent/deploy-microservices/README.md    
+    - Lab 1. Deploy Microservices Application: generatedContent/deploy-microservices/README.md    
   - Storage:
     - Kubernetes Storage: generatedContent/kubernetes-storage/README.md
     - Lab 0. Prework: generatedContent/kubernetes-storage/Lab0/README.md
@@ -41,11 +41,11 @@ nav:
     - Lab 2. File storage with kubernetes: generatedContent/kubernetes-storage/Lab2/README.md
     - Lab 3. Block storage with kubernetes: generatedContent/kubernetes-storage/Lab3/README.md    
   - Operators:
-    - About the workshop: generatedContent/kubernetes-operators/README.md
-    - Setup: generatedContent/kubernetes-operators/setup.md
-    - Custom Resource (CR): generatedContent/kubernetes-operators/lab1.md
-    - Go Operator with Operator SDK: generatedContent/kubernetes-operators/lab2.md
-    - Operator from Helm: generatedContent/kubernetes-operators/lab3.md
+    - Kubernetes Operators: generatedContent/kubernetes-operators/README.md
+    - Lab 0. Setup: generatedContent/kubernetes-operators/setup.md
+    - Lab 1. Custom Resource (CR): generatedContent/kubernetes-operators/lab1.md
+    - Lab 2. Go Operator with Operator SDK: generatedContent/kubernetes-operators/lab2.md
+    - Lab 3. Operator from Helm: generatedContent/kubernetes-operators/lab3.md
   - Istio 101:
     - Lab 0. Install Istio: generatedContent/istio101/exercise-2/README.md
     - Lab 1. Deploy Guestbook App: generatedContent/istio101/exercise-3/README.md
@@ -68,7 +68,7 @@ theme:
   icon:
     logo: material/library
   features:
-    #- navigation.tabs
+    - navigation.tabs
     #- navigation.instant
     - navigation.indexes
   palette:
@@ -118,8 +118,7 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight:
-      linenums: true
+  - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.mark
