@@ -12,13 +12,14 @@ edit_uri: edit/master/docs
 nav:
   - Welcome:
     - Workshop Overview: README.md
-  - Setup:
-    - Setup: generatedContent/workshop-setup/docs/README.md
-    - Register for IBM Cloud: generatedContent/workshop-setup/docs/NEWACCOUNT.md
+  - Environment Setup:
+    #- Setup: generatedContent/workshop-setup/docs/README.md
+    #- Register for IBM Cloud: generatedContent/workshop-setup/docs/NEWACCOUNT.md
     - Grant Kubernetes Cluster: generatedContent/workshop-setup/docs/GRANTCLUSTER.md
-    - IBM Cloud Shell: generatedContent/workshop-setup/docs/CLOUDSHELL.md
-    - Terminal at CognitiveClass.ai: generatedContent/workshop-setup/docs/COGNITIVECLASS.md
-    - Helm v3: generatedContent/workshop-setup/docs/HELM.md
+    #- IBM Cloud Shell: generatedContent/workshop-setup/docs/CLOUDSHELL.md
+    #- Terminal at CognitiveClass.ai: generatedContent/workshop-setup/docs/COGNITIVECLASS.md
+    #- Helm v3: generatedContent/workshop-setup/docs/HELM.md
+    - Cloud Shell: pre-work/README.md
   - Kube 101:
     - Lab 0. Access a Kubernetes cluster: generatedContent/kube101/Lab0/README.md
     - Lab 1. Deploy your first application: generatedContent/kube101/Lab1/README.md
