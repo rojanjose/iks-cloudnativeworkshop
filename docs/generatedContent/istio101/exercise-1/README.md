@@ -1,8 +1,14 @@
 # Exercise 1 - Accessing a Kubernetes cluster with IBM Cloud Kubernetes Service
 
-You must already have a [cluster created](https://cloud.ibm.com/docs/containers?topic=containers-clusters#clusters_standard). Your cluster must have **3 or more worker nodes** with at least **4 cores and 16GB RAM**, and run Kubernetes version 1.16 or later.
+## Pre-requirements
 
-## Install IBM Cloud Kubernetes Service command line utilities
+* a [cluster created](https://cloud.ibm.com/docs/containers?topic=containers-clusters#clusters_standard). Your cluster must have **2 or more worker nodes** with at least **4 cores and 16GB RAM**, and run Kubernetes version 1.19 or later.
+* Access to a client terminal with:
+    * `IBM Cloud CLI`,
+    * `kubectl`, and
+    * `istioctl`.
+
+## Install IBM Cloud Kubernetes Service command line
 
 1. Download and install the required CLI tools.
 
@@ -10,7 +16,7 @@ You must already have a [cluster created](https://cloud.ibm.com/docs/containers?
     curl -sL https://ibm.biz/idt-installer | bash
     ```
 
-1. Log in to the IBM Cloud CLI. (If you have a federated account, include the `--sso` flag.)
+1. Using IBM Cloud CLI, log in to IBM Cloud, select the account with the Kubernetes cluster. (If you have a federated account, include the `--sso` flag.)
 
     ```shell
     ibmcloud login
@@ -67,9 +73,9 @@ Learn how to set the context to work with your cluster by using the `kubectl` CL
     ```shell
     git clone https://github.com/IBM/istio101
 
-    cd istio101/workshop
+    cd istio101/docs/plans
     ```
 
-    This is the working directory for the workshop. You will use the example `.yaml` files that are located in the `workshop/plans` directory in the following exercises.
+    This is the working directory for the workshop. You will use the example `.yaml` files that are located in the `docs/plans` directory in the following exercises.
 
 ### [Continue to Exercise 2 - Installing Istio](../exercise-2/README.md)

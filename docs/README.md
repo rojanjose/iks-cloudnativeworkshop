@@ -11,7 +11,7 @@ Each topic in this workshop consists of a technical overview and a hands-on lab.
 | Welcome, Introductions & Objectives | All | 10 mins |
 | [Lecture: Overview of Docker (with Demo)](presentations/Overview-of-Containers.pdf)  | Remko de Knikker | 20 mins |
 | [Lecture: Overview of Kubernetes](presentations/Overview-of-Kubernetes.pdf)  | Remko de Knikker | 30 mins |
-| [Lab: Kubernetes 101](generatedContent/kube101/Lab0/README.md) | Remko | 60 mins |
+| [Lab: Kubernetes 101](generatedContent/kube101/Lab0/README.md) | Remko de Knikker | 60 mins |
 | BREAK (10am) | | 10 mins |
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Rojan Jose | 30 mins |
 | [Lab: Helm 101](generatedContent/helm101/Lab0/README.md) |  Rojan Jose | 50 mins |
@@ -38,7 +38,7 @@ Each topic in this workshop consists of a technical overview and a hands-on lab.
 | [Lab: Custom Resources and Operators](generatedContent/kubernetes-operators/README.md) |  Rojan Jose | 60 mins |
 | LUNCH (12pm) | | 60 mins |
 | [Lecture: Istio](presentations/Overview-of-Istio.pdf) | Remko de Knikker | 45 mins |
-| [Lab: Istio 101](generatedContent/istio101/README.md) | Remko de Knikker | 60 mins |
+| [Lab: Istio 101](generatedContent/istio101/exercise-1/README.md) | Remko de Knikker | 60 mins |
 | Wrap up | All | |
 
 ## Technologies
