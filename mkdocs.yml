@@ -34,7 +34,7 @@ nav:
   - Jenkins 101:
     - Jenkins and Kubernetes: generatedContent/jenkins101/README.md
   - Microservices:
-    - Lab 1. Deploy Microservices Application: generatedContent/deploy-microservices/README.md    
+    - Lab 1. Deploy Microservices Application: generatedContent/deploy-microservices/README_deployment.md    
   - Storage:
     - Kubernetes Storage: generatedContent/kubernetes-storage/README.md
     - Lab 0. Prework: generatedContent/kubernetes-storage/Lab0/README.md

@@ -5,14 +5,14 @@
 In this session, we demonstrate how a sample cloud native application can be deployed on top of Kubernetes. This application, Office Space, mimicks the fictitious app idea from Michael Bolton in the movie [Office Space](http://www.imdb.com/title/tt0151804/). The app takes advantage of a financial program that computes interest for transactions by diverting fractions of a cent that are usually rounded off into a seperate bank account.
 
 The application includes a few services developed in different languages.
-   * The key coponent of the application is a `Java 8/Spring Boot` microservice that computes the interest then takes the fraction of the pennies to a database. 
-   * Another `Spring Boot microservice` is the notification service. It sends email when the account balance reach more than $50,000. It is triggered by the Spring Boot webserver that computes the interest. 
-   * The frontend user interafce is a `Node.js` application that shows the current account balance accumulated by the Spring Boot app. 
-   * The backend uses a `MySQL database` to store the account balance.
-   * The transaction generator is a `Python` application that generates random transactions with accumulated interest. It's the last piece of your service mesh and used to simulate the transaction activities.
+
+* The key coponent of the application is a `Java 8/Spring Boot` microservice that computes the interest then takes the fraction of the pennies to a database.
+* Another `Spring Boot microservice` is the notification service. It sends email when the account balance reach more than $50,000. It is triggered by the Spring Boot webserver that computes the interest.
+* The frontend user interafce is a `Node.js` application that shows the current account balance accumulated by the Spring Boot app.
+* The backend uses a `MySQL database` to store the account balance.
+* The transaction generator is a `Python` application that generates random transactions with accumulated interest. It's the last piece of your service mesh and used to simulate the transaction activities.
 
 The instructions were adapted from the more comprehensive tutorial found here - https://github.com/IBM/spring-boot-microservices-on-kubernetes.
-
 
 ### Develop Microservices
 
@@ -23,11 +23,11 @@ Couple of microservices were developed in `Spring Boot` which is one of the popu
 Other microservices were developed in `Node.js` and `Python`. `MySQL Database` running in a separate container serves as persistent store. As a whole, the sample application delivers a native cloud architecture and follows 12 factors best practice.
 
 The source code are in the following subfolders
-   * containers/compute-interest-api
-   * containers/send-notification
-   * containers/account-summary
-   * containers/transaction-generator
 
+* containers/compute-interest-api
+* containers/send-notification
+* containers/account-summary
+* containers/transaction-generator
 
 ### Flow
 
@@ -51,7 +51,6 @@ The source code are in the following subfolders
 * [Databases](https://en.wikipedia.org/wiki/IBM_Information_Management_System#.22Full_Function.22_databases): Repository for storing and managing collections of data.
 * [Serverless](https://www.ibm.com/cloud/functions): An event-action platform that allows you to execute code in response to an event.
 
-
 ### Steps
 
 1. Clone the repo
@@ -65,19 +64,17 @@ The source code are in the following subfolders
 
 Each service in the application run in their containers. It has a Deployment and a Service. The deployment manages the pods started for each microservice. The Service creates a stable DNS entry for each microservice so they can reference their dependencies by name.
 
-
 #### 1. Clone the repo
 
 Clone this repository. In a terminal, run:
 
+```sh
+cd  ~
+
+git clone https://github.com/lee-zhg/spring-boot-microservices-on-kubernetes
+
+cd  spring-boot-microservices-on-kubernetes
 ```
-$ cd  ~
-
-$ git clone https://github.com/lee-zhg/spring-boot-microservices-on-kubernetes
-
-$ cd  spring-boot-microservices-on-kubernetes
-```
-
 
 #### 2. Modify send-notification.yaml file for email notification
 
@@ -94,7 +91,6 @@ Optionally, if you like to send and receive email (gmail) notification, You will
     - name: EMAIL_RECEIVER
        value: 'sendTo@gmail.com' # change this to the email of the receiver
    ```
-
 
 #### 3. Deploy `MySQL` Database
 
@@ -119,7 +115,6 @@ Optionally, if you like to send and receive email (gmail) notification, You will
       secret "demo-credentials" created
       ```
 
-
 #### 4. Deploy `compute-interest-api` service
 
 Microservice `compute-interest-api` is written in Spring Boot. It's deployed to your cluster as one component of your service mesh.
@@ -130,7 +125,6 @@ Microservice `compute-interest-api` is written in Spring Boot. It's deployed to 
    service "compute-interest-api" created
    deployment "compute-interest-api" created
    ```
-
 
 #### 5. Deploy `send-notification` service
 
@@ -143,7 +137,6 @@ Microservice `send-notification` is written in Spring Boot. It's deployed to you
    deployment "send-notification" created
    ```
 
-
 #### 6. Deploy `account-summary` service - the Frontend User Interface
 
 The Frontend User Interface is a Node.js app serving static files (HTML, CSS, JavaScript) that shows the total account balance. It's another component of your service mesh.
@@ -154,7 +147,6 @@ The Frontend User Interface is a Node.js app serving static files (HTML, CSS, Ja
    service "account-summary" created
    deployment "account-summary" created
    ```
-
 
 #### 7. Deploy `transaction-generator` service - the Transaction Generator service
 
@@ -201,7 +193,6 @@ One way to access your application is through `Public IP` and `NodePort`.
 
    ![Account-balance](images/balance.png)
 
-
 ### Explore the Kubernetes Dashboard
 
 Great, your application is deployed and working. 
@@ -214,20 +205,19 @@ After you have deployed all services, the Kubernetes Dashboard can provide an ov
 
 1. Locate and select your Kubernetes cluster.
 
-   ![Account-balance](images/k8s_ui.png)
+    ![Account-balance](images/k8s_ui.png)
 
 1. Click the `Kubernetes Daskboard` button.
 
 1. `Kubernetes Dashboard` window opens.
 
-   ![Account-balance](images/k8s_dashboard.png)
+    ![Account-balance](images/k8s_dashboard.png)
 
 1. The charts in `Workloads Statuses` section on the `Overview` page provides a high level view of your cluster status. They are color-coded. `RED` indicates major issue.
 
 1. Explore section `Deployments`, `Pods` and `Replica Sets`, they all indicate that the service `send-notification` failed.
 
 1. Navigate to different pages in the `Kubernetes Dashboard` and you may find specific information that may be more interesting to you.
-
 
 ### Debug Deployment
 
@@ -239,24 +229,24 @@ In this section, you learn the very basic debugging technics in the `Kubernetes 
 
 1. Select `send-notification-xxxxxxx` entry in the `Replica Sets` section. 
 
-   ![Account-balance](images/k8s_relicasets.png)
+    ![Account-balance](images/k8s_relicasets.png)
 
 1. This opened `send-notification-xxxxxxx` entry in the `Replica Sets` page.
 
 1. Click the `LOGS` link on the top of the page.
 
-   ![Account-balance](images/k8s_relicasets_logs.png)
+    ![Account-balance](images/k8s_relicasets_logs.png)
 
 1. Scan the log entries and you should find a section similar to the one below. It shows that `Could not resolve placeholder 'OPENWHISK_API_URL_SLACK' in value "${OPENWHISK_API_URL_SLACK}"`. 
 
-   ```
-   2019-08-20 18:07:24.209  WARN 14 --- [           main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'triggerEmail': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'OPENWHISK_API_URL_SLACK' in value "${OPENWHISK_API_URL_SLACK}"
-   2019-08-20 18:07:24.212  INFO 14 --- [           main] o.apache.catalina.core.StandardService   : Stopping service Tomcat
-   2019-08-20 18:07:24.228  INFO 14 --- [           main] utoConfigurationReportLoggingInitializer : 
-   Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
-   2019-08-20 18:07:24.236 ERROR 14 --- [           main] o.s.boot.SpringApplication               : Application startup failed
-   org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'triggerEmail': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'OPENWHISK_API_URL_SLACK' in value "${OPENWHISK_API_URL_SLACK}"
-   ```
+    ```
+    2019-08-20 18:07:24.209  WARN 14 --- [           main] ationConfigEmbeddedWebApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'triggerEmail': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'OPENWHISK_API_URL_SLACK' in value "${OPENWHISK_API_URL_SLACK}"
+    2019-08-20 18:07:24.212  INFO 14 --- [           main] o.apache.catalina.core.StandardService   : Stopping service Tomcat
+    2019-08-20 18:07:24.228  INFO 14 --- [           main] utoConfigurationReportLoggingInitializer : 
+    Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+    2019-08-20 18:07:24.236 ERROR 14 --- [           main] o.s.boot.SpringApplication               : Application startup failed
+    org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'triggerEmail': Injection of autowired dependencies failed; nested exception is java.lang.IllegalArgumentException: Could not resolve placeholder 'OPENWHISK_API_URL_SLACK' in value "${OPENWHISK_API_URL_SLACK}"
+    ```
 
 1. The service `send-notification` failed because it can't resolve environment variable `OPENWHISK_API_URL_SLACK`.
 
@@ -279,33 +269,32 @@ In this section, you learn the very basic debugging technics in the `Kubernetes 
 
 1. Apply the changes.
 
-   ```
-   $ kubectl apply -f send-notification.yaml
+    ```sh
+    $ kubectl apply -f send-notification.yaml
    
-   service/send-notification unchanged
-   deployment.extensions/send-notification configured
-   ```
+    service/send-notification unchanged
+    deployment.extensions/send-notification configured
+    ```
 
 1. Go back to the `Overview` page of the `Kubernetes Dashboard`. All services are working now.
 
-   ![Account-balance](images/k8s_ok.png)
-
+    ![Account-balance](images/k8s_ok.png)
 
 ### Clean up
 
-To delete everything created during this session, 
+To delete everything created during this session:
 
-   ```
+   ```sh
    kubectl delete svc,deploy -l app=office-space
    ```
 
-
 ### References
+
 * [John Zaccone](https://github.com/jzaccone) - The original author of the [office space app deployed via Docker](https://github.com/jzaccone/office-space-dockercon2017).
 * The Office Space app is based on the 1999 film that used that concept.
 
-
 ### License
+
 This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
 
 [Apache Software License (ASL) FAQ](http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
