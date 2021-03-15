@@ -1,23 +1,69 @@
 # Exercise 2 - Installing Istio on IBM Cloud Kubernetes Service
 
-In this module, you will use the Managed Istio add-on to install Istio on your cluster.
+In this module, you will use the `istioctl` CLI to install Istio on your cluster.
 
-Managed Istio is available as part of IBM Cloud™ Kubernetes Service. The service provides seamless installation of Istio, automatic updates and lifecycle management of control plane components, and integration with platform logging and monitoring tools.
+1. Check if `istioctl` is installed in the client terminal,
 
-1. Download the `istioctl` CLI and add it to your PATH:
+    ```bash
+    $ istioctl version
+    2021-03-13T23:02:25.382086Z warn will use `--remote=false` to retrieve version info due to `no Istio pods in name
+    1.5.4
+    ```
+
+1. If `istioctl` is not installed, download the `istioctl` CLI and add it to your PATH:
 
    ```shell
    curl -L https://istio.io/downloadIstio | ISTIO_VERSION=1.5.6 sh -
-   ```
 
-   ```shell
    export PATH=$PWD/istio-1.5.6/bin:$PATH
    ```
 
-1. Enable Managed Istio on your IKS cluster:
+1. List the available profiles,
+
+    ```bash
+    istioctl profile list
+    ```
+
+    Sample output:
+
+    ```bash
+    $ istioctl profile list
+
+    Istio configuration profiles:
+        minimal
+        remote
+        separate
+        default
+        demo
+        empty
+    ```
+
+1. Install Istio with the `demo` Istio profile into your IKS cluster:
+
+    ```bash
+    istioctl manifest apply --set profile=demo
+    ```
+
+    Sample output:
 
     ```shell
-    ibmcloud ks cluster addon enable istio --cluster $MYCLUSTER
+    $ istioctl manifest apply --set profile=demo
+
+    - Applying manifest for component Base...
+    ✔ Finished applying manifest for component Base.
+    - Applying manifest for component Pilot...
+    ✔ Finished applying manifest for component Pilot.
+      Waiting for resources to become ready...
+      Waiting for resources to become ready...
+      Waiting for resources to become ready...
+    - Applying manifest for component IngressGateways...
+    - Applying manifest for component EgressGateways...
+    - Applying manifest for component AddonComponents...
+    ✔ Finished applying manifest for component IngressGateways.
+    ✔ Finished applying manifest for component EgressGateways.
+    ✔ Finished applying manifest for component AddonComponents.
+    
+    ✔ Installation complete
     ```
 
 1. The install can take up to 10 minutes. Ensure the corresponding pods are all in **`Running`** state before you continue.
@@ -29,14 +75,16 @@ Managed Istio is available as part of IBM Cloud™ Kubernetes Service. The servi
     Sample output:
 
     ```shell
-    NAME                                     READY   STATUS    RESTARTS   AGE
+    $ kubectl get pods -n istio-system
 
-istio-egressgateway-6c966469cc-52t6f    1/1     Running   0          69s
-istio-egressgateway-6c966469cc-qq5qd    1/1     Running   0          55s
-istio-ingressgateway-7698c7b4f4-69c24   1/1     Running   0          68s
-istio-ingressgateway-7698c7b4f4-qttzh   1/1     Running   0          54s
-istiod-cbb98c74d-2wvql                  1/1     Running   0          54s
-istiod-cbb98c74d-kcr4d                  1/1     Running   0          67s
+    NAME                                   READY   STATUS    RESTARTS   AGE
+    grafana-57cb8b8d44-zld4p               1/1     Running   0          49s
+    istio-egressgateway-794f9f9d64-7hxw5   1/1     Running   0          52s
+    istio-ingressgateway-945588978-gxtqq   1/1     Running   0          52s
+    istio-tracing-7fcc6f5848-8fx8j         1/1     Running   0          49s
+    istiod-7b7d59548-bs9x7                 1/1     Running   0          65s
+    kiali-6875bdf78-ppgn7                  1/1     Running   0          49s
+    prometheus-5d4c44597d-w49b5            2/2     Running   0          4m33s
     ```
 
 > **NOTE** Before you continue, make sure all the pods are deployed and either in the **`Running`** or **`Completed`** state. If they're in `pending` state, wait a few minutes to let the installation and deployment finish.
@@ -50,9 +98,9 @@ istiod-cbb98c74d-kcr4d                  1/1     Running   0          67s
     Sample output:
 
     ```shell
-    client version: 1.5.6
-    control plane version: 1.5.6
-    data plane version: 1.5.6 (4 proxies)
+    client version: 1.5.4
+    control plane version: 1.5.4
+    data plane version: 1.5.4 (3 proxies)
     ```
 
     Congratulations! You successfully installed Istio into your cluster.

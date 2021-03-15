@@ -1,4 +1,4 @@
-# Exercise 5 - Expose the service mesh with the Istio Ingress Gateway
+# Exercise 4 - Expose the service mesh with the Istio Ingress Gateway
 
 The components deployed on the service mesh by default are not exposed outside the cluster. External access to individual services so far has been provided by creating an external load balancer or node port on each service.
 
@@ -11,7 +11,7 @@ An Ingress Gateway resource can be created to allow external requests through th
 1. Configure the guestbook default route with the Istio Ingress Gateway. The `guestbook-gateway.yaml` file is in this repository (istio101) in the `workshop/plans` directory.
 
 ```shell
-cd ../../plans
+cd ../..
 kubectl create -f guestbook-gateway.yaml
 ```
 
@@ -39,7 +39,7 @@ export INGRESS_IP=169.6.1.1
 
 ## Connect Istio Ingress Gateway to the IBM Cloud Kubernetes Service NLB Host Name
 
-NLB host names are the DNS host names you can generate for each IBM Cloud Kubernetes deployment exposed with the Network LoadBalancer(NLB) service. These host names come with SSL certificate, the DNS registration, and health checks so you can benefit from them for any deployments that you expose via the NLB on IBM Cloud Kubernetes Service.
+NLB host names are created for each IBM Cloud Kubernetes cluster that is exposed with the Network LoadBalancer (NLB) service. These host names come with SSL certificate, the DNS registration, and health checks so you can benefit from them for any deployments that you expose via the NLB on IBM Cloud Kubernetes Service.
 
 You can run the IBM Cloud Kubernetes Service ALB, an API gateway of your choice, an Istio ingress gateway, and an MQTT server in parallel in your IBM Cloud Kubernetes Service cluster. Each one will have its own:
 
@@ -57,7 +57,7 @@ Let's leverage this feature with Istio ingress gateway:
     ibmcloud ks nlb-dnss --cluster $MYCLUSTER
     ```
 
-   If you haven't used this feature before, you will get an empty list.
+   If you haven't used this feature before, you will get an empty list. You can also find the hostname or the `Ingress subdomain` in the Cluster overview page of your cluster in the IBM Cloud page.
 
 1. Obtain the Istio ingress gateway's external IP. Get the EXTERNAL-IP of the istio-ingressgateway service via output below:
 
@@ -131,4 +131,4 @@ Congratulations! You extended the base Ingress features by providing a DNS entry
 
 * [Bring your own ALB](https://www.ibm.com/blogs/bluemix/2019/04/bring-your-own-alb-dns-with-health-checks-and-ssl-certificates-beta/)
 
-## [Continue to Exercise 6 - Traffic Management](../exercise-6/README.md)
+## [Continue to Exercise 4 - Traffic Management](../exercise-6/README.md)

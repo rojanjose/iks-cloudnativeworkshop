@@ -48,10 +48,9 @@ nav:
     - Lab 2. Go Operator with Operator SDK: generatedContent/kubernetes-operators/lab2.md
     - Lab 3. Operator from Helm: generatedContent/kubernetes-operators/lab3.md
   - Istio 101:
-    - Lab 0. Install Istio: generatedContent/istio101/exercise-2/README.md
-    - Lab 1. Deploy Guestbook App: generatedContent/istio101/exercise-3/README.md
-    - Lab 2. Metrics and Tracing: generatedContent/istio101/exercise-4/README.md
-    - Lab 3. Exposing Guestbook with Istio Ingress Gateway: generatedContent/istio101/exercise-5/README.md
+    - Lab 1. Setup: generatedContent/istio101/exercise-1/README.md
+    - Lab 2. Install Istio: generatedContent/istio101/exercise-2/README.md
+    - Lab 3. Deploy Guestbook App: generatedContent/istio101/exercise-3/README.md
     - Lab 4. Traffic Management: generatedContent/istio101/exercise-6/README.md
     - Lab 5. mutual TLS: generatedContent/istio101/exercise-7/README.md
 
