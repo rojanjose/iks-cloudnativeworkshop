@@ -14,7 +14,7 @@ Each topic in this workshop consists of a technical overview and a hands-on lab.
 | [Lab: Kubernetes 101](generatedContent/kube101/Lab0/README.md) | Remko de Knikker | 60 mins |
 | BREAK (10am) | | 10 mins |
 | [Lecture: Helm](https://ibm.box.com/s/cluclg99642s5bgi6j2wixr37jg7nw96) | Rojan Jose | 30 mins |
-| [Lab: Helm 101](generatedContent/helm101/Lab0/README.md) |  Rojan Jose | 50 mins |
+| [Lab: Helm 101](generatedContent/helm101/Lab1/README.md) |  Rojan Jose | 50 mins |
 | LUNCH (12pm) | | 60 mins |
 | [Lecture: CI/CD Options for Kubernetes](https://ibm.box.com/s/m9m0c3uxp8detksw6ycbsff90wimj1nu) | Rojan Jose | 20 mins |
 | [Lab: CI/CD with Jenkins 101](generatedContent/jenkins101/README.md) | Rojan Jose | 45 mins |
