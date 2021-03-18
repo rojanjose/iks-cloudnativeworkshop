@@ -9,7 +9,7 @@ Each topic in this workshop consists of a technical overview and a hands-on lab.
 | DAY 1 - 8am to 3pm EST  |  |  |
 | :--- | :--- | :--- |
 | Welcome, Introductions & Objectives | All | 10 mins |
-| [Lecture: Overview of Docker (with Demo)](presentations/Overview-of-Containers.pdf)  | Remko de Knikker | 20 mins |
+| [Lecture: Overview of Docker](presentations/Overview-of-Containers.pdf) with [demo](generatedContent/docker101/README.md)  | Remko de Knikker | 20 mins |
 | [Lecture: Overview of Kubernetes](presentations/Overview-of-Kubernetes.pdf)  | Remko de Knikker | 30 mins |
 | [Lab: Kubernetes 101](generatedContent/kube101/Lab1/README.md) | Remko de Knikker | 60 mins |
 | BREAK (10am) | | 10 mins |
