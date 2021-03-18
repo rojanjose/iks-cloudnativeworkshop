@@ -31,17 +31,17 @@ When Envoy proxies establish a connection, they exchange and validate certificat
 
 1. To enforce a mesh-wide authentication policy that requires mutual TLS, submit the following policy. This policy specifies that all workloads in the mesh will only accept encrypted requests using TLS.
 
-```shell
-kubectl apply -n default -f - <<EOF
-apiVersion: "security.istio.io/v1beta1"
-kind: "PeerAuthentication"
-metadata:
-  name: "default"
-spec:
-  mtls:
-    mode: STRICT
-EOF
-```
+    ```shell
+    kubectl apply -n default -f - <<EOF
+    apiVersion: "security.istio.io/v1beta1"
+    kind: "PeerAuthentication"
+    metadata:
+      name: "default"
+    spec:
+      mtls:
+        mode: STRICT
+    EOF
+    ```
 
 1. Visit your guestbook application by going to it in your browser. Everything should be working as expected! To confirm mTLS is infact enabled, you can run:
 
