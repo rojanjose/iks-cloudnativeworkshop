@@ -73,13 +73,13 @@ EOF
 Create the Custom Resource for the Guestbook witht he command,
 
 ```bash
-oc create -f guestbook-crd.yaml
+kubectl create -f guestbook-crd.yaml
 ```
 
 When run in the terminal,
 
 ```bash
-$ oc create -f guestbook-crd.yaml
+$ kubectl create -f guestbook-crd.yaml
 customresourcedefinition.apiextensions.k8s.io/guestbooks.apps.ibm.com created
 ```
 
@@ -102,26 +102,20 @@ EOF
 And to create the `my-guestbook` resource, run the command
 
 ```bash
-oc create -f my-guestbook.yaml
+kubectl create -f my-guestbook.yaml
 ```
 
 When run in the terminal,
 
 ```bash
-$ oc create -f my-guestbook.yaml
+$ kubectl create -f my-guestbook.yaml
 guestbook.apps.ibm.com/my-guestbook created
 ```
 
 If you list all Kubernetes resources, only the default Kubernetes service is listed. To list your Custom Resources, add the extended type to your command.
 
 ```bash
-$ oc get all
-NAME    TYPE    CLUSTER-IP    EXTERNAL-IP    PORT(S)    AGE
-service/kubernetes    ClusterIP    172.21.0.1    <none>    443/TCP    5d14h
-service/openshift    ExternalName    <none>    kubernetes.default.svc.cluster.local    <none>    5d14h
-service/openshift-apiserver    ClusterIP    172.21.6.8    <none>    =443/TCP    5d14h
-
-$ oc get guestbook
+$ kubectl get guestbook
 NAME    AGE
 my-guestbook    8m32s
 ```
@@ -129,7 +123,7 @@ my-guestbook    8m32s
 To read the details for the `my-guestbook` of type `Guestbook`, describe the instance,
 
 ```bash
-$ oc describe guestbook my-guestbook
+$ kubectl describe guestbook my-guestbook
 
 Name:         my-guestbook
 Namespace:    default
@@ -152,7 +146,7 @@ Events:                <none>
 Or retrieve the resource information by specifying the type,
 
 ```bash
-$ oc get Guestbook -o yaml
+$ kubectl get Guestbook -o yaml
 apiVersion: v1
 items:
 - apiVersion: apps.ibm.com/v1
@@ -173,9 +167,5 @@ metadata:
   resourceVersion: ""
   selfLink: ""
 ```
-
-In the OpenShift web console, you can browse to Administration > Custom Resource Definitions and find the Guestbook CRD at `/k8s/cluster/customresourcedefinitions/guestbooks.apps.ibm.com`.
-
-![Administration > Custom Resource Definitions](images/lab1/openshift-admin-crd.png)
 
 You have now created a new type or Custom Resource (CR) and created an instance of your new type. But just having a new type and a new instance of the type, does not add as much control over the instances yet, we can basically only create and delete a static type with some descriptive meta-data. With a custom controller or `Operator` you can over-write the methods that are triggered at certain lifecycle events.

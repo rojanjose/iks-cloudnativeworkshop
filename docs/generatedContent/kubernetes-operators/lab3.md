@@ -51,9 +51,7 @@ The following must be done before you can get started on the lab:
     ```
 
 
-3. Log into the OpenShift cluster: Scroll down on the Quick Links and Common commands page until you see a terminal command block with green text and a description above it that says Log in to your OpenShift cluster. Click on the command and it will automatically paste into your terminal and execute.
-
-    ![Cluster login](./images/lab3/loginCommand.png)
+3. Connect to your Kubernetes clusters as descried in the [setup](/pre-work/).
 
 4. This lab uses docker registry to container image storage. Create a new [docker hub](https://hub.docker.com/) id, if you do not have one.
 
@@ -63,9 +61,8 @@ The following must be done before you can get started on the lab:
 
 Certain parameters will be used repetitively. Export these parameters as environment variables prior to starting the project.
 
-Replace `<your-docker-username>` with your docker hub id.
 ```bash
-export DOCKER_USERNAME=<your-docker-username>
+export DOCKER_USERNAME=rojanjose
 ```
 Set names for the operator, project and operator version. The operator container images is built using these values.
 ```bash
@@ -231,6 +228,10 @@ spec:
 
 ### 3. Build the Operator container image and push it to registry.
 
+> Note: *** SKIP THIS STEP ***
+This CLI enviroment does not have docker engine runing. We will use a pre-built image.
+This section was left here to illustraute how the operator image is built.
+
 Login into the docker registry using your personal id and password.
 ```bash
 docker login docker.io -u $DOCKER_USERNAME
@@ -293,7 +294,7 @@ customresourcedefinition.apiextensions.k8s.io/guestbooks.charts.guestbook.ibm.co
 ```
 View the deployed CRD
 ```
-oc describe  CustomResourceDefinition guestbooks.charts.guestbook.ibm.com
+kubectl describe  CustomResourceDefinition guestbooks.charts.guestbook.ibm.com
 ```
 
 Next step is to deploy the operator. Note that the operator is installed in its own namespace `guestbook-operator-project-system`.
@@ -319,10 +320,10 @@ deployment.apps/guestbook-operator-project-controller-manager created
 
 View of what got deployed:
 ```bash
-oc get all -n ${OPERATOR_PROJECT}-system
+kubectl get all -n ${OPERATOR_PROJECT}-system
 ```
 ```
-$ oc get all -n ${OPERATOR_PROJECT}-system
+$ kubectl get all -n ${OPERATOR_PROJECT}-system
 NAME                                                                 READY   STATUS    RESTARTS   AGE
 pod/guestbook-operator-project-controller-manager-7bc6f986dd-2r898   2/2     Running   0          2m24s
 
@@ -341,35 +342,23 @@ replicaset.apps/guestbook-operator-project-controller-manager-7bc6f986dd   1    
 
 Create a new project called `guestbook` where Guestbook application will be deployed.
 ```bash
-oc new-project guestbook
-```
-```
-$ oc new-project guestbook
-Now using project "guestbook" on server "https://c107-e.us-south.containers.cloud.ibm.com:30606".
-
-You can add applications to this project with the 'new-app' command. For example, try:
-
-    oc new-app ruby~https://github.com/sclorg/ruby-ex.git
-
-to build a new example application in Ruby. Or use kubectl to deploy a simple Kubernetes application:
-
-    kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
+kubectl create namespace guestbook
 ```
 
 An example custom resource yaml file was automatically generated under the `config/samples` directory as part of the `create API` step earlier. This is based on the default `values.yaml` from the Guestbook helm chart under `helm-charts/guestbook/values.yaml`. Let's use this file to create the operand.
 ```bash
-oc apply -f config/samples/charts_v1alpha1_guestbook.yaml
+kubectl apply -f config/samples/charts_v1alpha1_guestbook.yaml -n guestbook
 ```
 ```
-$ oc apply -f config/samples/charts_v1alpha1_guestbook.yaml
+$ kubectl apply -f config/samples/charts_v1alpha1_guestbook.yaml -n guestbook
 guestbook.charts.guestbook.ibm.com/guestbook-sample created
 ```
 Outcome of the operand deploy can be viewed by running the command:
 ```bash
-oc get all -n guestbook
+kubectl get all -n guestbook
 ```
 ```
-$ oc get all -n guestbook
+$ kubectl get all -n guestbook
 NAME                                    READY   STATUS    RESTARTS   AGE
 pod/guestbook-sample-8594c8dc46-bl7sm   1/1     Running   0          75s
 pod/guestbook-sample-8594c8dc46-qwgkv   1/1     Running   0          75s
@@ -395,8 +384,8 @@ replicaset.apps/redis-slave-bbd8d8545         2         2         2       75s
 
 Validate the Guestbook application is running by accessing it with the following commands:
 ```bash
-HOSTNAME=`oc get nodes -ojsonpath='{.items[0].metadata.labels.ibm-cloud\.kubernetes\.io\/external-ip}'`
-SERVICEPORT=`oc get svc guestbook-sample -o=jsonpath='{.spec.ports[0].nodePort}'`
+HOSTNAME=`kubectl get nodes -ojsonpath='{.items[0].metadata.labels.ibm-cloud\.kubernetes\.io\/external-ip}'`
+SERVICEPORT=`kubectl get svc guestbook-sample -o=jsonpath='{.spec.ports[0].nodePort}' -n guestbook`
 echo "http://$HOSTNAME:$SERVICEPORT"
 ```
 ```
@@ -407,29 +396,21 @@ Copy and paste the above URL in a new browser tab to get to the Guestbook landin
 ![Guestbook UI](./images/lab3/guestbook-ui.png)
 
 
-Open the OpenShift console to view the artificats created as part of this exerice.
-
-Guestbook operator pod:
-![Operator pd](images/lab3/operator-pod.png)
-
-Guestbook application pods:
-![Operator pd](images/lab3/application-pod.png)
-
 ### 6. Cleanup the deployment.
 
 Remove the Guestbook application by deleting the customer resource (CR).
 
 ```bash
-oc delete -f config/samples/charts_v1alpha1_guestbook.yaml 
+kubectl delete -f config/samples/charts_v1alpha1_guestbook.yaml 
 ```
 ```
-$ oc delete -f config/samples/charts_v1alpha1_guestbook.yaml 
+$ kubectl delete -f config/samples/charts_v1alpha1_guestbook.yaml 
 guestbook.charts.guestbook.ibm.com "guestbook-sample" deleted
 
-$ oc get all -n guestbook
+$ kubectl get all -n guestbook
 No resources found in guestbook namespace.
 
-$ oc delete project guestbook
+$ kubectl delete project guestbook
 project.project.openshift.io "guestbook" deleted
 ```
 

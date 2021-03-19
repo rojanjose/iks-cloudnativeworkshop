@@ -115,7 +115,6 @@ Review the deployment yaml file `guestbook-deplopyment.yaml` prior to deploying 
 cat guestbook-deployment.yaml
 ```
 
-Replace the first part of `image` name with your docker hub user id.
 The section `spec.volumes` lists `hostPath` and `emptyDir` volumes. The section `spec.containers.volumeMounts` lists the mount paths that the application uses to write in the volumes.
 
 ```yaml
@@ -279,9 +278,10 @@ Received message: Goedendag Kubernetes!
 root@guestbook-v1-6f55cb54c5-jb89d:/home/node/app# ls dontdeletemeplease
 ls: dontdeletemeplease: No such file or directory
 
+root@guestbook-v1-6f55cb54c5-jb89d:/home/node/app# exit
 ```
 
-Notice how the storage from the primary (`hostPath`) and secondary (`emptyDir`) storage types persisted beyond the lifecycle of the container, but the `dontdeletemeplease` file, did not.
+Notice how the storage from the primary (`hostPath`) and secondary (`emptyDir`) storage types persisted beyond the lifecycle of the container, but the `dontdeletemeplease` file, did not. Exit the container.
 
 Next, we'll kill the pod to see the impact of deleting the pod on data.
 

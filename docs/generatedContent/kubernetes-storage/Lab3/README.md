@@ -285,15 +285,15 @@ Now that we have built our application, let's check out the manifest files neede
 
 1. Review manifest files.
 
-This repo contains 3 manifests that we will be deploying to our cluster today:
+    This repo contains 3 manifests that we will be deploying to our cluster today:
 
-- A deployment manifest
-- A service manifest
-- A configMap manifest
+    - A deployment manifest
+    - A service manifest
+    - A configMap manifest
 
-These manifests will create their respective kubernetes objects on our cluster.
+    These manifests will create their respective kubernetes objects on our cluster.
 
-The `deployment` will deploy our application image that we built earlier while the `service` will expose that application to external traffic. The `configMap` will contain connection information for our database such as database hostname and port.
+    The `deployment` will deploy our application image that we built earlier while the `service` will expose that application to external traffic. The `configMap` will contain connection information for our database such as database hostname and port.
 
 1. Open the `guestbook-deployment.yaml` and review the image name
 
