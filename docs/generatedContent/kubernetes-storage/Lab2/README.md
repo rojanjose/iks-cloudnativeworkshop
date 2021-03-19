@@ -10,9 +10,8 @@ Following topics are covered in this exercise:
 - Use the `Guestbook` application to view the images.
 - Claim back the storage resources and clean up.
 
-## Prereqs
+![Storage options](images/lab2-remote-storage.png)
 
-Follow the [prereqs](../Lab0/README.md) if you haven't already.
 
 ## Claim file storage volume
 
@@ -135,28 +134,12 @@ pvc-a7cb12ed-b52b-4342-966a-eceaf24e42a9   20Gi       RWX            Delete     
 
 ## Use the volume in the Guestbook application
 
-Change to the guestbook application source directory and review the html files `images.html` and `index.html`. `images.html` has the code to display the images stored in the file storage.
+We will mount the file storage create earlier step to store images used by the `Guestbook` application. Review the html files [images.html](https://github.com/IBM/guestbook-nodejs/blob/fs/src/client/images.html) and [index.html](https://github.com/IBM/guestbook-nodejs/blob/fs/src/client/index.html). `images.html` has the code to display the images stored in the file storage.
 
-```bash
-cd $HOME/guestbook-nodejs/src
-cat client/images.html
-cat client/index.html
-```
-
-Run the commands listed below to build the guestbook image and copy into the docker hub registry:
-(Skip this step if you have already completed lab 1.)
-
-```bash
-cd $HOME/guestbook-nodejs/src
-docker build -t $DOCKERUSER/guestbook-nodejs:storage .
-docker login -u $DOCKERUSER
-docker push $DOCKERUSER/guestbook-nodejs:storage
-```
 
 Review the deployment yaml file `guestbook-deplopyment.yaml` prior to deploying the application into the cluster.
 
 ```bash
-cd $HOME/guestbook-config/storage/lab2
 cat guestbook-deployment.yaml
 ```
 

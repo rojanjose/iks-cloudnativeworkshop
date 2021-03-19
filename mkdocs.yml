@@ -38,7 +38,7 @@ nav:
   - Storage:
     - Kubernetes Storage: generatedContent/kubernetes-storage/README.md
     - Lab 0. Prework: generatedContent/kubernetes-storage/Lab0/README.md
-    - Lab 1. Container storage and Kubernetes: generatedContent/kubernetes-storage/Lab1/README.md
+    - Lab 1. Pod/Node storage and Kubernetes: generatedContent/kubernetes-storage/Lab1/README.md
     - Lab 2. File storage with kubernetes: generatedContent/kubernetes-storage/Lab2/README.md
     - Lab 3. Block storage with kubernetes: generatedContent/kubernetes-storage/Lab3/README.md    
   - Operators:

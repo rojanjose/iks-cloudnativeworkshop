@@ -14,13 +14,13 @@ The lab covers the following topics:
 
 The primary storage maps to the volume type `hostPath` and the secondary storage maps to `emptyDir`. Learn more about Kubernetes volume types [here](https://Kubernetes.io/docs/concepts/storage/volumes/).
 
+![Storage options](images/lab1-storage-options.png)
+
 ## Reserve Persistent Volumes
 
 From the cloud shell prompt, run the following commands to get the guestbook application and the kubernetes configuration needed for the storage labs.
 
 ```bash
-cd $HOME
-git clone --branch fs https://github.com/IBM/guestbook-nodejs.git
 git clone --branch storage https://github.com/rojanjose/guestbook-config.git
 cd $HOME/guestbook-config/storage/lab1
 ```
@@ -78,7 +78,8 @@ Create PVC:
 ```bash
 kubectl create -f pvc-hostpath.yaml
 persistentvolumeclaim/guestbook-local-pvc created
-❯ kubectl get pvc
+
+kubectl get pvc
 NAME                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS       AGE
 guestbook-local-pvc   Bound    guestbook-local-pv                         10Gi       RWX            manual             6s
 ```
@@ -87,13 +88,7 @@ guestbook-local-pvc   Bound    guestbook-local-pv                         10Gi  
 
 The application is the [Guestbook App](https://github.com/IBM/guestbook-nodejs), which is a simple multi-tier web application built using the loopback framework.
 
-Change to the guestbook application source directory:
-
-```bash
-cd $HOME/guestbook-nodejs/src
-```
-
-Review the source `common/models/entry.js`. The application uses storage allocated using `hostPath` to store data cache in the file `data/cache.txt`. The file `logs/debug.txt` records debug messages provisioned using the `emptyDir` storage type.
+The source `common/models/entry.js` was modified to include the code snippet shown below to create `data cache` and `log debug`. The application uses storage allocated using `hostPath` to store data cache in the file `data/cache.txt`. The file `logs/debug.txt` records debug messages provisioned using the `emptyDir` storage type.
 
 ```javascript
 module.exports = function(Entry) {
@@ -114,18 +109,9 @@ module.exports = function(Entry) {
 ...
 ```
 
-Run the commands listed below to build the guestbook image and copy into the docker hub registry:
+Review the deployment yaml file `guestbook-deplopyment.yaml` prior to deploying the application into the cluster. Deploy uses a pre-built image of the source descided above.
 
 ```bash
-docker build -t $DOCKERUSER/guestbook-nodejs:storage .
-docker login -u $DOCKERUSER
-docker push $DOCKERUSER/guestbook-nodejs:storage
-```
-
-Review the deployment yaml file `guestbook-deplopyment.yaml` prior to deploying the application into the cluster.
-
-```bash
-cd $HOME/guestbook-config/storage/lab1
 cat guestbook-deployment.yaml
 ```
 
@@ -189,7 +175,7 @@ Open the URL in a browser and create guest book entries.
 
 ![Guestbook entries](images/lab1-guestbook-entries.png)
 
-Next, inspect the data. To do this, run a bash process inside the application container using `kubectl exec`. Reference the pod name from the previous `kubectl get pods` command. Once inside the container, use the subsequent comands to inspect the data.
+Next, inspect the data. To do this, run a bash process inside the application container using `kubectl exec`. Reference the pod name from the previous `kubectl get pods` command. Once inside the container, use the subsequent comands to inspect the data. Run the command `findmnt` for additional info.
 
 ```bash
 kubectl exec -it [POD NAME] -- bash
@@ -311,8 +297,6 @@ kubectl get pods
 NAME                            READY   STATUS    RESTARTS   AGE
 guestbook-v1-5cbc445dc9-sx58j   1/1     Running   0          86s
 ```
-
-![Guestbook delete data](images/lab1-guestbook-data-deleted.png)
 
 Enter new data:
 ![Guestbook reload](images/lab1-guestbook-data-reload.png)
