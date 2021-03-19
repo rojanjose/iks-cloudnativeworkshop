@@ -31,10 +31,10 @@ Each topic in this workshop consists of a technical overview and a hands-on lab.
 | :--- | :--- | :--- |
 | Welcome back, recap | All | 10 mins |
 | [Lecture: Microservices](https://ibm.box.com/s/juwyhpy4yt99ckvigd43140tlx3j53rb) | Javier Torres | 15 mins |
-| [Lecture: Kubernetes Storage](https://ibm.box.com/s/c7r9vsfdqtev76p1nqvdvumnoc6cai7m) | Rojan Jose | 30 mins |
+| [Lecture: Kubernetes Storage](https://ibm.box.com/s/wbra8ku61a89zn3tkxijd8ybzqbvjhop) | Rojan Jose | 30 mins |
 | [Lab: Container, File and Block Storage for Kubernetes](generatedContent/kubernetes-storage/README.md) | Rojan Jose | 90 mins |
 | BREAK (10:25am) | | 10 mins |
-| [Lecture: Kubernetes Extensions](https://ibm.box.com/s/c7r9vsfdqtev76p1nqvdvumnoc6cai7m) | Rojan Jose | 35 mins |
+| [Lecture: Kubernetes Extensions](https://ibm.box.com/s/bm5659yfh0v7z58zuwoa6wa1tjjtcuse) | Rojan Jose | 35 mins |
 | [Lab: Custom Resources and Operators](generatedContent/kubernetes-operators/README.md) |  Rojan Jose | 60 mins |
 | LUNCH (12pm) | | 60 mins |
 | [Lecture: Istio](presentations/Overview-of-Istio.pdf) | Remko de Knikker | 45 mins |
